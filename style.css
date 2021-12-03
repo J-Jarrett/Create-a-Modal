@@ -1,0 +1,78 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* The above was just me resetting everything at the root */
+/* The following is to give styling to the modal: 
+    style the button, 
+    style the modal in general (that's the shaded background area)
+    style the "modal-content" area and give it a little box-shadow
+    style the X (closeBtn) to push it over to the right of the content, and give it a cursor pointer and some visible change in hover state.
+
+    ** see .modal : the display:none; property was originally commented out so we could see what we were doing, then uncommented before moving on to the main.js
+
+    Next: move on to main.js to add functionality (click to close modal)
+*/
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem;
+    line-height: 1.6;
+}
+
+button {
+    background-color: rgb(187, 113, 16);
+    padding: 1em 2em;
+    color: #fff;
+    border: 0;
+}
+
+button:hover {
+    background-color: indigo;
+    cursor: pointer;
+}
+
+.modal {
+    /* display: none; */
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0; top: 0; height: 100%; width: 100%; overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 20% auto;
+    padding: 20px;
+    width: 70%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),
+    0 7px 20px 0 rgba(0,0,0,0.16);
+    /* 
+    This is where we add a little animation after main.js
+    */
+    animation-name: modalopen;
+    animation-duration: 2s;
+}
+
+.closeBtn {
+    color: #ccc;
+    float: right;
+    font-size: 2rem;
+}
+
+.closeBtn:hover, .closeBtn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* That's good, but it doesn't do anything yet, now go to main.js */
+
+/* Animation bit added after main.js written, see .modal-content */
+@keyframes modalopen {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
