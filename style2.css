@@ -1,0 +1,103 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* The above was just me resetting everything at the root */
+/* 
+FROM STYLE.CSS (for Simple Modal):
+The following is to give styling to the modal: 
+    style the button, 
+    style the modal in general (that's the shaded background area)
+    style the "modal-content" area and give it a little box-shadow
+    style the X (closeBtn) to push it over to the right of the content, and give it a cursor pointer and some visible change in hover state.
+
+    ** see .modal : the display:none; property was originally commented out so we could see what we were doing, then uncommented before moving on to the main.js
+
+    Next: move on to main.js to add functionality (click to close modal)
+*/
+
+/* FOR STYLE2.CSS, modal-content: delete padding, ADDING HEADER, BODY AND FOOTER AND CHANGING CLOSE MODAL:
+
+
+*/
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+button {
+    background-color: rgb(187, 113, 16);
+    padding: 1em 2em;
+    color: #fff;
+    border: 0;
+}
+
+button:hover {
+    background-color: indigo;
+    cursor: pointer;
+}
+
+.modal {
+    /* display: none; */
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0; top: 0; height: 100%; width: 100%; overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 20% auto;
+    /* padding: 20px; */
+    width: 70%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),
+    0 7px 20px 0 rgba(0,0,0,0.16);
+    /* 
+    This is where we add a little animation after main.js
+    */
+    animation-name: modalopen;
+    animation-duration: 2s;
+}
+
+.modal-header h2, modal-footer h3 {
+    margin: 0;
+}
+.modal-header {
+    background:rgb(187, 113, 16);
+    padding: 15px;
+    color: #fff;
+}
+.modal-body {
+    padding: 10px 20px;
+}
+.modal-footer {
+    background-color: rgb(187, 113, 16);
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+}
+
+.closeBtn {
+    color: #ccc;
+    float: right;
+    font-size: 2rem;
+}
+
+.closeBtn:hover, .closeBtn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* That's good, but it doesn't do anything yet, now go to main.js */
+
+/* Animation bit added after main.js written, see .modal-content */
+@keyframes modalopen {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
